@@ -1,1 +1,59 @@
-<p>contact works!</p>
+<div class="contact-form">
+    <form [formGroup]='contactForm' (ngSubmit)="getFormData()">
+        <h3 class="text-center ">CONTACT US</h3>
+        <div class="form-group">
+            <label for=""></label>
+            <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="name"
+                formControlName="name">
+            <div *ngIf="contactForm.controls['name'].errors?.required && contactForm.controls['name'].touched"
+                class="alert alert-danger mt-2" role="alert">
+                Name is <strong>required</strong>
+            </div>
+            <div *ngIf="contactForm.controls['name'].errors?.minlength" class="alert alert-danger mt-2" role="alert">
+                Name shoud be <strong> Greater than or equal 3 letters</strong>
+            </div>
+            <div *ngIf="contactForm.controls['name'].errors?.maxlength" class="alert alert-danger mt-2" role="alert">
+                Name shoud be <strong> Less than or equal to 8 letters</strong>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for=""></label>
+            <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="email"
+                formControlName="email">
+            <div *ngIf="contactForm.controls['email'].touched && contactForm.controls['email'].errors?.required "
+                class="alert alert-danger mt-2" role="alert">
+                Email is <strong>required</strong>
+            </div>
+            <div *ngIf="contactForm.controls['email'].errors?.email && !contactForm.controls['email'].errors?.required || contactForm.controls['email'].errors?.pattern "
+                class="alert alert-danger mt-2" role="alert">
+                Please enter a valid email address
+            </div>
+        </div>
+        <div class="form-group">
+            <label for=""></label>
+            <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="phone"
+                formControlName="phone">
+            <div *ngIf="contactForm.controls['phone'].errors?.required && contactForm.controls['phone'].touched"
+                class="alert alert-danger mt-2" role="alert">
+                Phone is <strong>required</strong>
+            </div>
+            <div *ngIf="contactForm.controls['phone'].errors?.pattern" class="alert alert-danger mt-2" role="alert">
+                Enter the correct number
+            </div>
+        </div>
+        <div class="form-group">
+            <label for=""></label>
+            <textarea class="form-control" name="" id="" rows="3" formControlName="message"
+                placeholder="message"></textarea>
+        </div>
+        <div *ngIf="contactForm.controls['message'].errors?.required && contactForm.controls['message'].touched"
+            class="alert alert-danger mt-2" role="alert">
+            Message is <strong>required</strong>
+        </div>
+
+        <div class="py-3 ">
+            <button type="submit" class="btn btn-outline-dark d-block ms-auto" [disabled]='contactForm.invalid' >Send</button>
+
+        </div>
+    </form>
+</div>

@@ -10,7 +10,6 @@ export class MoviesComponent implements OnInit {
   totalMovies = [];
   element: any;
   movies: Movie[];
-  // arrLenght: number;
   imagePrefix: string;
   constructor(public moviesService: MoviesService) {
     this.imagePrefix = 'https://image.tmdb.org/t/p/w500';

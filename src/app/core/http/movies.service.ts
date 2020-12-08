@@ -12,4 +12,14 @@ export class MoviesService {
       { params: { page: '1' } }
     );
   }
+  getMovieDetails(id: string): Observable<any> {
+    return this.http.get(
+      `https://api.themoviedb.org/3/movie/${id}?api_key=5d900a04f25518f6ff167c2637b95f96&language=en-US`
+    );
+  }
+  getMovieCast(id: string): Observable<any> {
+    return this.http.get(
+      `https://api.themoviedb.org/3/movie/${id}?api_key=5d900a04f25518f6ff167c2637b95f96&append_to_response=credits`
+    );
+  }
 }

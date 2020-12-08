@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-md-9 text-white text-center">
+    <img class="w-100" [src]="imagePrefix + allMovieDetails.backdrop_path" />
+    <div class="moviedetails">
+      <h3 class="p-3 title">{{ allMovieDetails.original_title }}</h3>
+      <p class="lead">{{ allMovieDetails.overview }}</p>
+    </div>
+  </div>
+  <!-- Top 10 -->
+  <div class="top-ten col-md-3 text-center text-white">
+    <h3 class="font-weight-bolder">Top 10</h3>
+    <div
+      class="movie d-flex justify-content-center flex-column align-items-center"
+      *ngFor="let movie of topTen"
+    >
+      <a [routerLink]="['/movies', movie.id]">
+        <img class="w-50" [src]="imagePrefix + movie.poster_path" />
+      </a>
+      <h5>{{ movie.title }}</h5>
+    </div>
+  </div>
+
+  <!-- cast -->
+  <div class="col-md-9 text-white py-5 mt-5">
+    <h1>Cast</h1>
+    <div class="row text-center">
+      <ng-container *ngFor="let cast of cuttentCharacter">
+        <div class="col-md-3 mx-1 my-2">
+          <img class="w-50" [src]="imagePrefix + cast.profile_path" />
+          <h5 class="py-3">{{ cast.name }}</h5>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <div class="col-md-4 ms-auto">
+    <button class="btn btn-outline-dark" routerLink="/movies">Back</button>
+  </div>
+</div>
