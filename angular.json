@@ -28,9 +28,12 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/css/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -124,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "task"
+  "defaultProject": "task",
+  "cli": {
+    "analytics": "e8ac610f-6481-407a-beac-1902325c5453"
+  }
 }
